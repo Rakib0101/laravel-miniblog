@@ -1,6 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +26,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/', function () {
     return view('website.index');
-});
+})->name('website.index');
 Route::get('/category', function () {
     return view('website.category');
 });
@@ -38,6 +41,13 @@ Route::get('/single-post', function () {
 });
 
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard.index');
+// admin routes
+Route::group(['prefix' =>'admin', 'middleware'=>['auth']], function(){
+    Route::get('dashboard', function(){
+        return view('admin.dashboard.index');
+    })->name('admin.dashboard.index');
+    
+    Route::resource('category', CategoryController::class);
+    Route::resource('tag', TagController::class);
 });
+
