@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontEndController;
 
@@ -41,6 +42,14 @@ Route::group(['prefix' =>'admin', 'middleware'=>['auth']], function(){
     Route::resource('category', CategoryController::class);
     Route::resource('tag', TagController::class);
     Route::resource('post', PostController::class);
+    Route::resource('user', UserController::class);
+
+    Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])
+    ->name('user.profile');
+
+    Route::post('/profile', [App\Http\Controllers\UserController::class, 'profile_update'])
+    ->name('user.profile_update');
+    
 });
 
 

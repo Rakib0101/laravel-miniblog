@@ -18,6 +18,9 @@ class UserTableSeeder extends Seeder
             'name' => 'Rakibul',
             'email' => 'rakib@gmail.com',
             'password' => \bcrypt('12345678'),
+            'image' => 'image.jpg',
+            'description' => 'some description',
+            'slug' => 'rakibul-islam'
         ]);
     }
 }
