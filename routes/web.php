@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 
 /*
@@ -49,5 +50,10 @@ Route::group(['prefix' =>'admin', 'middleware'=>['auth']], function(){
     
     Route::resource('category', CategoryController::class);
     Route::resource('tag', TagController::class);
+    Route::resource('post', PostController::class);
 });
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

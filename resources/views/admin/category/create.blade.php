@@ -29,7 +29,7 @@
                     <div class="card-header">
                         <h3 class="card-title">Create Category</h3>
                         <div class="float-right">
-                            <a href="{{ route('category.create') }}" class="btn btn-primary ms-auto">Go Back To Category
+                            <a href="{{ route('category.index') }}" class="btn btn-primary ms-auto">Go Back To Category
                                 List</a>
                         </div>
                     </div>

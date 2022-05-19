@@ -48,14 +48,14 @@
             </a>                    
           </li>
           <li class="nav-item mt-auto">
-            <a href="" class="nav-link {{ (request()->is('admin/post*')) ? 'active': '' }}">
+            <a href="{{ route('post.index') }}" class="nav-link {{ (request()->is('admin/post*')) ? 'active': '' }}">
               <i class="nav-icon fas fa-pen-square"></i>
               <p>
                 Post
               </p>
             </a>                    
           </li>
-          <li class="nav-item mt-auto">
+          {{-- <li class="nav-item mt-auto">
             <a href="" class="nav-link {{ (request()->is('admin/contact*')) ? 'active': '' }}">
               <i class="nav-icon fas fa-envelope"></i>
               <p>
@@ -87,7 +87,7 @@
                 Your Profile
               </p>
             </a>
-          </li>
+          </li> --}}
           <li class="nav-item mt-auto">
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt"></i>
