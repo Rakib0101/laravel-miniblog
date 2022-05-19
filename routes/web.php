@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FrontEndController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,29 +18,18 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\FrontEndController::class, 'index'])->name('website.index');
 
-Route::get('/', function () {
-    return view('website.index');
-})->name('website.index');
-Route::get('/category', function () {
-    return view('website.category');
-});
-Route::get('/about', function () {
-    return view('website.about');
-});
-Route::get('/contact', function () {
-    return view('website.contact');
-});
-Route::get('/single-post', function () {
-    return view('website.single-post');
-});
+Route::get('/about', [App\Http\Controllers\FrontEndController::class, 'about'])->name('website.about');
+
+Route::get('/category', [App\Http\Controllers\FrontEndController::class, 'category'])->name('website.category');
+
+Route::get('/post/{slug}', [App\Http\Controllers\FrontEndController::class, 'singlePost'])->name('website.post');
+
+Route::get('/contact', [App\Http\Controllers\FrontEndController::class, 'contact'])->name('website.contact');
+
 
 
 // admin routes
