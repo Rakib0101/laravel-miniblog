@@ -50,9 +50,12 @@ class FrontENdController extends Controller
         $popularPosts = Post::with('category', 'user')->inRandomOrder()->limit(3)->get();
         $categories = Category::all();
         $tags = Tag::all();
-
+        $relatedPosts = Post::orderBy('category_id', 'DESC')->inRandomOrder()->take(4)->get();
+        $relatedFirst1 = $relatedPosts->splice(0,1);
+        $related2 = $relatedPosts->splice(0,2);
+        $relatedLast1 = $relatedPosts->splice(0,1);
         if($post){
-            return view('website.post', compact(['post', 'popularPosts', 'categories', 'tags']));
+            return view('website.post', compact(['post', 'popularPosts', 'categories', 'tags', 'relatedFirst1', 'related2', 'relatedLast1']));
         }
         else{
             return redirect('website.index');

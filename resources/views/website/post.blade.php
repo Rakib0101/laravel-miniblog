@@ -248,46 +248,46 @@
           </div>
         </div>
 
-        <div class="row align-items-stretch retro-layout">
-          
-          <div class="col-md-5 order-md-2">
-            <a href="single.html" class="hentry img-1 h-100 gradient" style="background-image: url('{{asset('website')}}/images/img_4.jpg');">
-              <span class="post-category text-white bg-danger">Travel</span>
-              <div class="text">
-                <h2>The 20 Biggest Fintech Companies In America 2019</h2>
-                <span>February 12, 2019</span>
-              </div>
-            </a>
-          </div>
+          <div class="row align-items-stretch retro-layout">
 
-          <div class="col-md-7">
-            
-            <a href="single.html" class="hentry img-2 v-height mb30 gradient" style="background-image: url('{{asset('website')}}/images/img_1.jpg');">
-              <span class="post-category text-white bg-success">Nature</span>
-              <div class="text text-sm">
-                <h2>The 20 Biggest Fintech Companies In America 2019</h2>
-                <span>February 12, 2019</span>
-              </div>
-            </a>
-            
-            <div class="two-col d-block d-md-flex">
-              <a href="single.html" class="hentry v-height img-2 gradient" style="background-image: url('{{asset('website')}}/images/img_2.jpg');">
-                <span class="post-category text-white bg-primary">Sports</span>
-                <div class="text text-sm">
-                  <h2>The 20 Biggest Fintech Companies In America 2019</h2>
-                  <span>February 12, 2019</span>
+            <div class="col-md-5 order-md-2">
+                @foreach ($relatedLast1 as $item)
+                <a href="single.html" class="hentry img-1 h-100 gradient"
+                    style="background-image: url('{{$item->image}}');">
+                    <span class="post-category text-white bg-danger">{{$item->category->name}}</span>
+                    <div class="text">
+                        <h2>{{$item->title}}</h2>
+                        <span>{{$item->created_at->format('M d, Y')}}</span>
+                    </div>
+                </a>
+                @endforeach
+            </div>
+
+            <div class="col-md-7">
+              @foreach ($relatedFirst1 as $item)
+                <a href="single.html" class="hentry img-2 v-height mb30 gradient"
+                    style="background-image: url('{{$item->image}}');">
+                    <span class="post-category text-white bg-success">{{$item->category->name}}</span>
+                    <div class="text text-sm">
+                        <h2>{{$item->title}}</h2>
+                        <span>{{$item->created_at->format('M d, Y')}}</span>
+                    </div>
+                </a>
+                @endforeach
+                <div class="two-col d-block d-md-flex justify-content-between">
+                  @foreach ($related2 as $item)
+                    <a href="single.html" class="hentry v-height img-2 gradient"
+                        style="background-image: url('{{$item->image}}');">
+                        <span class="post-category text-white bg-primary">{{$item->category->name}}</span>
+                        <div class="text text-sm">
+                            <h2>{{$item->title}}</h2>
+                            <span>{{$item->created_at->format('M d, Y')}}</span>
+                        </div>
+                    </a>    
+                  @endforeach 
                 </div>
-              </a>
-              <a href="single.html" class="hentry v-height img-2 ml-auto gradient" style="background-image: url('{{asset('website')}}/images/img_3.jpg');">
-                <span class="post-category text-white bg-warning">Lifestyle</span>
-                <div class="text text-sm">
-                  <h2>The 20 Biggest Fintech Companies In America 2019</h2>
-                  <span>February 12, 2019</span>
-                </div>
-              </a>
-            </div>  
-            
-          </div>
+
+            </div>
         </div>
 
       </div>
