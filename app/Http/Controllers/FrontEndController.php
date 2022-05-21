@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class FrontENdController extends Controller
@@ -29,15 +31,28 @@ class FrontENdController extends Controller
     {
         return view('website.about');
     }
-    public function category()
-    {
-        return view('website.category');
+    public function category($slug)
+    {        
+        $category = Category::where('slug', $slug)->first();
+
+        if($category){
+            $posts = Post::where('category_id', $category->id)->paginate(3);
+            return view('website.category', compact(['category', 'posts']));
+        }
+        else{
+            return redirect()->route('website.index');
+        }
+        
     }
     public function singlePost($slug)
     {
         $post = Post::with('category', 'user')->where('slug', $slug)->first();
+        $popularPosts = Post::with('category', 'user')->inRandomOrder()->limit(3)->get();
+        $categories = Category::all();
+        $tags = Tag::all();
+
         if($post){
-            return view('website.post', compact('post'));
+            return view('website.post', compact(['post', 'popularPosts', 'categories', 'tags']));
         }
         else{
             return redirect('website.index');

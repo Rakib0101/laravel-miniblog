@@ -25,7 +25,7 @@ Route::get('/', [App\Http\Controllers\FrontEndController::class, 'index'])->name
 
 Route::get('/about', [App\Http\Controllers\FrontEndController::class, 'about'])->name('website.about');
 
-Route::get('/category', [App\Http\Controllers\FrontEndController::class, 'category'])->name('website.category');
+Route::get('/category/{slug}', [App\Http\Controllers\FrontEndController::class, 'category'])->name('website.category');
 
 Route::get('/post/{slug}', [App\Http\Controllers\FrontEndController::class, 'singlePost'])->name('website.post');
 
