@@ -67,7 +67,8 @@ class FrontENdController extends Controller
     }
     public function contact()
     {
-        return view('website.contact');
+        $user = User::first();
+        return view('website.contact', compact('user'));
     }
     
 }

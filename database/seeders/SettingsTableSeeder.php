@@ -19,11 +19,13 @@ class SettingsTableSeeder extends Seeder
             'site_logo' => 'image.jpg',
             'site_bio' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat reprehenderit magnam deleniti quasi saepe, consequatur atque sequi delectus dolore veritatis obcaecati quae, repellat eveniet omnis, voluptatem in. Soluta, eligendi, architecto.',
             'copyright' => 'Copyright © 2022 All rights reserved',
-            'facebook' => 'Copyright © 2022 All rights reserved',
-            'twitter' => 'Copyright © 2022 All rights reserved',
-            'instagram' => 'Copyright © 2022 All rights reserved',
-            'reddit' => 'Copyright © 2022 All rights reserved',
-            'email' => 'Copyright © 2022 All rights reserved',
+            'facebook' => 'www.facebook.com',
+            'twitter' => 'www.twitter.com',
+            'instagram' => 'www.instagram.com',
+            'reddit' => 'www.reddit.com',
+            'email' => 'rakib.01jan@gmail.com',
+            'phone' => '01929032016',
+            'address' => 'Shuvaddya east para, Keranigonj, Dhaka',
         ]);
     }
 }

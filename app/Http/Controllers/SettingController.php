@@ -40,6 +40,8 @@ class SettingController extends Controller
         $settings->instagram = $request->instagram;
         $settings->reddit = $request->reddit;
         $settings->email = $request->email;
+        $settings->phone = $request->phone;
+        $settings->address = $request->address;
         
 
         if($request->hasFile('site_logo')){
