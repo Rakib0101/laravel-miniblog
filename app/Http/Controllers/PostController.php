@@ -124,7 +124,7 @@ class PostController extends Controller
             'category_id' => 'required',
         ]);
 
-        // dd($request->all());
+        dd($request->all());
 
         
         $post->title = $request->title;

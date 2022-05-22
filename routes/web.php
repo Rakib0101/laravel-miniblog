@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontEndController;
 
@@ -43,12 +45,20 @@ Route::group(['prefix' =>'admin', 'middleware'=>['auth']], function(){
     Route::resource('tag', TagController::class);
     Route::resource('post', PostController::class);
     Route::resource('user', UserController::class);
+    Route::resource('team', TeamController::class);
 
-    Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])
+    Route::get('profile', [App\Http\Controllers\UserController::class, 'profile'])
     ->name('user.profile');
 
-    Route::post('/profile', [App\Http\Controllers\UserController::class, 'profile_update'])
+    Route::post('profile', [App\Http\Controllers\UserController::class, 'profile_update'])
     ->name('user.profile_update');
+
+    Route::get('settings', [App\Http\Controllers\SettingController::class, 'index'])
+    ->name('settings.index');
+
+    Route::post('settings/{id}', [App\Http\Controllers\SettingController::class, 'update'])
+    ->name('settings.update');
+    
     
 });
 

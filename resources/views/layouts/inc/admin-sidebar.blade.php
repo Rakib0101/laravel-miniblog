@@ -76,14 +76,14 @@
                         </p>
                     </a>
                 </li>
-                {{-- <li class="nav-item mt-auto">
-                    <a href="" class="nav-link {{ (request()->is('admin/setting')) ? 'active': '' }}">
+                <li class="nav-item mt-auto">
+                    <a href="{{route('settings.index')}}" class="nav-link {{ (request()->is('admin/setting')) ? 'active': '' }}">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>
                             Setting
                         </p>
                     </a>
-                </li> --}}
+                </li>
                 <li class="nav-header">Your Account</li>
                 <li class="nav-item mt-auto">
                     <a href="{{ route('user.profile') }}"

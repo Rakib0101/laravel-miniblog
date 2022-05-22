@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Tag;
 use App\Models\Post;
+use App\Models\Team;
+use App\Models\User;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -29,7 +31,9 @@ class FrontENdController extends Controller
     }
     public function about()
     {
-        return view('website.about');
+        $user = User::first();
+        $teams = Team::all();
+        return view('website.about', compact(['teams', 'user']));
     }
     public function category($slug)
     {        
