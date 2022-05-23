@@ -47,7 +47,7 @@
      <script src="{{ asset('website') }}/js/aos.js"></script>
 
      <script src="{{ asset('website') }}/js/main.js"></script>
-
+     @yield('script')
 
  </body>
 

@@ -11,7 +11,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard.index')}}">Home</a></li>
-                    <li class="breadcrumb-item active">Category</li>
+                    <li class="breadcrumb-item active">Message</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -23,30 +23,36 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Category Lists</h3>
-                        <div class="float-right">
-                            <a href="{{ route('category.index') }}" class="btn btn-primary ms-auto">Back to Category List</a>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="card-title">Message</h3>
+                            <a href="{{ route('message.index') }}" class="btn btn-primary">Go Back to Message List</a>
                         </div>
                     </div>
-
                     <div class="card-body p-0">
-                        <div style="padding: 0.75rem 1.25rem;">
+                        <div class="card-body">
                             <table class="table table-bordered">
                                 <tr>
-                                    <td style="width:30%;">Category Name :</td>
-                                    <td>{{$category->name}}</td>
+                                    <td>Name : </td>
+                                    <td>{{$message->fname . ' ' . $message->lname}}</td>
                                 </tr>
                                 <tr>
-                                    <td style="width:30%;">Category Description :</td>
-                                    <td>{{$category->description}}</td>
+                                    <td>Email : </td>
+                                    <td>{{$message->email}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Subject : </td>
+                                    <td>{{$message->subject}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Message : </td>
+                                    <td>{{$message->message}}</td>
                                 </tr>
                             </table>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

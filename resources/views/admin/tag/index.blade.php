@@ -54,6 +54,8 @@
                                     <td>{{$tag->description}}</td>
                                     <td>{{$tag->id}}</td>
                                     <td class="d-flex">
+                                        <a class="mr-2 btn btn-sm btn-success"
+                                            href="{{ route('tag.show', $tag->id) }}"><i class="fas fa-eye"></i></a>
                                         <a class="mr-2 btn btn-sm btn-primary"
                                             href="{{ route('tag.edit', $tag->id) }}"><i class="fas fa-edit"></i></a>
                                         <form action="{{ route('tag.destroy', $tag->id) }}" class="mr-1" method="POST">
@@ -62,8 +64,7 @@
                                             <button type="submit" class="btn btn-sm btn-danger"> <i
                                                     class="fas fa-trash"></i> </button>
                                         </form>
-                                        <a class="mr-2 btn btn-sm btn-success"
-                                            href="{{ route('tag.show', $tag->id) }}"><i class="fas fa-eye"></i></a>
+                                        
                                     </td>
                                 </tr>
                                 @endforeach

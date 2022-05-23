@@ -119,16 +119,15 @@ class PostController extends Controller
         // validation
         $this->validate($request, [
             'title' => 'required|unique:categories,name, $post->id',
-            'image' => 'required|image',
             'description' => 'required',
             'category_id' => 'required',
         ]);
 
-        dd($request->all());
+        // dd($request->all());
 
         
         $post->title = $request->title;
-        $post->slug = Str::slug($request->name, '-');
+        $post->slug = Str::slug($request->title, '-');
         $post->description = $request->description;
         $post->category_id = $request->category_id;
         
@@ -148,7 +147,7 @@ class PostController extends Controller
 
         $post->tags()->sync($request->tags);
 
-        $post->update();
+        $post->save();
         Session::flash('success', 'Post updated successfully');
 
         return redirect()->route('post.index');

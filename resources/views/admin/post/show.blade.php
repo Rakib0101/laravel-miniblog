@@ -34,7 +34,7 @@
 
                     <div class="card-body p-0">
                         <div style="padding: 0.75rem 1.25rem;">
-                            <table class="table table-bordered table-pimary">
+                            <table class="table table-bordered table-primary">
                             <tbody>
                                 <tr>
                                     <th style="width: 200px">Image</th>

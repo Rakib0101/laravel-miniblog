@@ -6,9 +6,8 @@
 
             <div class="col-md-4">
                 @foreach($first2 as $item)
-                <a href="single.html" class="h-entry mb-30 v-height gradient"
+                <a href="{{ route('website.post', $item->slug) }}" class="h-entry mb-30 v-height gradient"
                     style="background-image: url('{{$item->image}}');">
-
                     <div class="text">
                         <h2>{{$item->title}}</h2>
                         <span class="date">{{$item->created_at->format('M d, Y')}}</span>
@@ -19,7 +18,7 @@
 
             <div class="col-md-4">
                 @foreach($middle1 as $item)
-                <a href="#" class="h-entry img-5 h-100 gradient"
+                <a href="{{ route('website.post', $item->slug) }}" class="h-entry img-5 h-100 gradient"
                     style="background-image: url('{{$item->image}}');">
                     <div class="text">
                         <div class="post-categories mb-3">
@@ -34,7 +33,7 @@
             </div>
             <div class="col-md-4">
                 @foreach($last2 as $item)
-                <a href="single.html" class="h-entry mb-30 v-height gradient"
+                <a href="{{ route('website.post', $item->slug) }}" class="h-entry mb-30 v-height gradient"
                     style="background-image: url('{{$item->image}}');">
 
                     <div class="text">
@@ -59,22 +58,22 @@
             @foreach ($recentPosts as $post)
             <div class="col-lg-4 mb-4">
                 <div class="entry2">
-                    <a href="{{ route('website.post', ['slug' => $post->slug]) }}"><img src="{{$post->image}}"
+                    <a href="{{ route('website.post', $post->slug) }}"><img src="{{$post->image}}"
                             alt="Image" class="img-fluid rounded"></a>
                     <div class="excerpt">
                         <span class="post-category text-white bg-secondary mb-3">{{$post->category->name}}</span>
 
-                        <h2><a href="{{ route('website.post', ['slug' => $post->slug]) }}">{{$post->title}}</a></h2>
+                        <h2><a href="{{ route('website.post', $post->slug) }}">{{$post->title}}</a></h2>
                         <div class="post-meta align-items-center text-left clearfix">
                             <figure class="author-figure mb-0 mr-3 float-left"><img
-                                    src="{{$post->user->image}}" alt="Image" class="img-fluid">
+                                    src="{{ asset('website')}}/images/person_1.jpg" alt="Image" class="img-fluid">
                             </figure>
                             <span class="d-inline-block mt-1">By <a href="#">{{$post->user->name}}</a></span>
                             <span>&nbsp;-&nbsp; {{$post->created_at->format('M d, Y')}}</span>
                         </div>
 
                         <p>{{Str::limit($post->description, 100)}}</p>
-                        <p><a href="{{ route('website.post', ['slug' => $post->slug]) }}">Read More</a></p>
+                        <p><a href="{{ route('website.post', $post->slug) }}">Read More</a></p>
                     </div>
                 </div>
             </div>
@@ -103,7 +102,7 @@
 
             <div class="col-md-5 order-md-2">
                 @foreach ($footerLast1 as $item)
-                <a href="single.html" class="hentry img-1 h-100 gradient"
+                <a href="{{ route('website.post', $item->slug) }}" class="hentry img-1 h-100 gradient"
                     style="background-image: url('{{$item->image}}');">
                     <span class="post-category text-white bg-danger">{{$item->category->name}}</span>
                     <div class="text">
@@ -116,7 +115,7 @@
 
             <div class="col-md-7">
               @foreach ($footerFirst1 as $item)
-                <a href="single.html" class="hentry img-2 v-height mb30 gradient"
+                <a href="{{ route('website.post', $item->slug) }}" class="hentry img-2 v-height mb30 gradient"
                     style="background-image: url('{{$item->image}}');">
                     <span class="post-category text-white bg-success">{{$item->category->name}}</span>
                     <div class="text text-sm">
@@ -127,7 +126,7 @@
                 @endforeach
                 <div class="two-col d-block d-md-flex justify-content-between">
                   @foreach ($footer2 as $item)
-                    <a href="single.html" class="hentry v-height img-2 gradient"
+                    <a href="{{ route('website.post', $item->slug) }}" class="hentry v-height img-2 gradient"
                         style="background-image: url('{{$item->image}}');">
                         <span class="post-category text-white bg-primary">{{$item->category->name}}</span>
                         <div class="text text-sm">

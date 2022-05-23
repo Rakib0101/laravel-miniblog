@@ -35,8 +35,16 @@
 
                     <div class="card-body p-0">
                         <div style="padding: 0.75rem 1.25rem;">
-                            <h2>{{$tag->name}}</h2>
-                            <p>{{$tag->description}}</p>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td style="width:30%;">Tag Name :</td>
+                                    <td>{{$tag->name}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:30%;">Tag Description :</td>
+                                    <td>{{$tag->description}}</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
 

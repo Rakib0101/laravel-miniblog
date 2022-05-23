@@ -39,7 +39,7 @@
                 @if($post->tags()->count() > 0)
                 Tags:
                   @foreach ($post->tags as $tag)
-                      <a href="#"> {{$tag->name}}</a>
+                      <a href="{{  route('website.tag', $tag->slug) }}"> #{{$tag->name}}</a>
                   @endforeach
                 @endif
               
@@ -49,7 +49,8 @@
 
             <div class="pt-5">
               <h3 class="mb-5">6 Comments</h3>
-              <ul class="comment-list">
+              <div id="disqus_thread"></div>
+              {{-- <ul class="comment-list">
                 <li class="comment">
                   <div class="vcard">
                     <img src="{{ asset('website')}}/images/person_1.jpg" alt="Image placeholder">
@@ -128,10 +129,10 @@
                     <p><a href="#" class="reply rounded">Reply</a></p>
                   </div>
                 </li>
-              </ul>
+              </ul> --}}
               <!-- END comment-list -->
               
-              <div class="comment-form-wrap pt-5">
+              {{-- <div class="comment-form-wrap pt-5">
                 <h3 class="mb-5">Leave a comment</h3>
                 <form action="#" class="p-5 bg-light">
                   <div class="form-group">
@@ -156,7 +157,7 @@
                   </div>
 
                 </form>
-              </div>
+              </div> --}}
             </div>
 
           </div>
@@ -216,7 +217,7 @@
               <h3 class="heading">Categories</h3>
               <ul class="categories">
                 @foreach ($categories as $category)
-                   <li><a href="{{  route('website.category', ['slug' => $category->slug]) }}">{{$category->name}} <span>(12)</span></a></li> 
+                   <li><a href="{{  route('website.category', $category->slug) }}">{{$category->name}} <span>(12)</span></a></li> 
                 @endforeach
                 
               </ul>
@@ -227,7 +228,9 @@
               <h3 class="heading">Tags</h3>
               <ul class="tags">
                 @foreach ($tags as $tag)
-                 <li><a href="#">#{{$tag->name}}</a></li>   
+                 <li>
+                   <a href="{{  route('website.tag', $tag->slug) }}"># {{$tag->name}}</a>
+                  </li>   
                 @endforeach
                 
               </ul>
@@ -252,7 +255,7 @@
 
             <div class="col-md-5 order-md-2">
                 @foreach ($relatedLast1 as $item)
-                <a href="single.html" class="hentry img-1 h-100 gradient"
+                <a href="{{ route('website.post', $post->slug) }}" class="hentry img-1 h-100 gradient"
                     style="background-image: url('{{$item->image}}');">
                     <span class="post-category text-white bg-danger">{{$item->category->name}}</span>
                     <div class="text">
@@ -265,7 +268,7 @@
 
             <div class="col-md-7">
               @foreach ($relatedFirst1 as $item)
-                <a href="single.html" class="hentry img-2 v-height mb30 gradient"
+                <a href="{{ route('website.post', $post->slug) }}" class="hentry img-2 v-height mb30 gradient"
                     style="background-image: url('{{$item->image}}');">
                     <span class="post-category text-white bg-success">{{$item->category->name}}</span>
                     <div class="text text-sm">
@@ -276,7 +279,7 @@
                 @endforeach
                 <div class="two-col d-block d-md-flex justify-content-between">
                   @foreach ($related2 as $item)
-                    <a href="single.html" class="hentry v-height img-2 gradient"
+                    <a href="{{ route('website.post', $post->slug) }}" class="hentry v-height img-2 gradient"
                         style="background-image: url('{{$item->image}}');">
                         <span class="post-category text-white bg-primary">{{$item->category->name}}</span>
                         <div class="text text-sm">
@@ -312,4 +315,25 @@
     </div>
     
     
+@endsection
+@section('script')
+    <script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://mini-blog-3.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    
+</script>
+<script id="dsq-count-scr" src="//mini-blog-3.disqus.com/count.js" async></script>
 @endsection

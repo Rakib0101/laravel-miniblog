@@ -59,14 +59,14 @@
                         </p>
                     </a>
                 </li>
-                {{-- <li class="nav-item mt-auto">
-                    <a href="" class="nav-link {{ (request()->is('admin/contact*')) ? 'active': '' }}">
+                <li class="nav-item mt-auto">
+                    <a href="{{ route('message.index') }}" class="nav-link {{ (request()->is('admin/message*')) ? 'active': '' }}">
                         <i class="nav-icon fas fa-envelope"></i>
                         <p>
                             Messages
                         </p>
                     </a>
-                </li> --}}
+                </li>
                 <li class="nav-item mt-auto">
                     <a href="{{ route('user.index')}}"
                         class="nav-link {{ (request()->is('admin/user*')) ? 'active': '' }}">

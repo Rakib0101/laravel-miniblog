@@ -26,10 +26,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Category List</h3>
-                        <div class="float-right">
-                            <a href="{{ route('category.create') }}" class="btn btn-primary ms-auto">Create Category</a>
-                        </div>
+                        <h3 class="card-title">Message List</h3>
+                        
                     </div>
 
                     <div class="card-body p-0">
@@ -38,30 +36,26 @@
                                 <tr>
                                     <th style="width: 10px">#</th>
                                     <th>Name</th>
-                                    <th>Slug</th>
-                                    <th>Description</th>
-                                    <th>Post Count</th>
+                                    <th>Email</th>
+                                    <th>Subject</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @if ($categories->count())
-                                    @foreach ($categories as $category)
+                                @if ($messages->count())
+                                    @foreach ($messages as $message)
                                 <tr>
-                                    <td>{{$category->id}}</td>
-                                    <td>{{$category->name}}</td>
-                                    <td>{{$category->slug}}</td>
-                                    <td>{{$category->description}}</td>
-                                    <td>{{$category->id}}</td>
+                                    <td>{{$message->id}}</td>
+                                    <td>{{$message->fname. ' '. $message->lname}}</td>
+                                    <td>{{$message->email}}</td>
+                                    <td>{{$message->subject}}</td>
                                     <td class="d-flex">
-                                        <a class="mr-2 btn btn-sm btn-success" href="{{ route('category.show', $category->id) }}"><i class="fas fa-eye"></i></a>
-                                      <a class="mr-2 btn btn-sm btn-primary" href="{{ route('category.edit', $category->id) }}"><i class="fas fa-edit"></i></a>
-                                      <form action="{{ route('category.destroy', $category->id) }}" class="mr-1" method="POST">
+                                        <a class="mr-2 btn btn-sm btn-success" href="{{ route('message.show', $message->id) }}"><i class="fas fa-eye"></i></a>
+                                        <form action="{{ route('message.destroy', $message->id) }}" class="mr-1" method="POST">
                                                 @method('DELETE')
                                                 @csrf 
                                                 <button type="submit" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> </button>
                                       </form>
-                                      
                                     </td>
                                 </tr>    
                               @endforeach
